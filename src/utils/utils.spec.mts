@@ -1,78 +1,80 @@
-// import { TOKEN_TYPES } from '../types/types.mts';
-// import {
-//   createToken,
-//   isBooleanTrue,
-//   isBooleanFalse,
-//   isNumber,
-//   isNull,
-// } from './utils.mts';
+import { expect, it, describe } from 'vitest';
 
-// describe('validToken', () => {
-//   it('creates a valid token', () => {
-//     const token = createToken(TOKEN_TYPES.STRING, 'Benjamin');
+import { TOKEN_TYPES } from '../types/types.mts';
+import {
+  createToken,
+  isBooleanTrue,
+  isBooleanFalse,
+  isNumber,
+  isNull,
+} from './utils.mts';
 
-//     expect(token).toEqual({ type: TOKEN_TYPES.STRING, value: 'Benjamin' });
-//   });
-// });
+describe('validToken', () => {
+  it('creates a valid token', () => {
+    const token = createToken(TOKEN_TYPES.STRING, 'Benjamin');
 
-// describe('isNumber', () => {
-//   it('returns true with: 2345', () => {
-//     const isTrue = isNumber('2345');
+    expect(token).toEqual({ type: TOKEN_TYPES.STRING, value: 'Benjamin' });
+  });
+});
 
-//     expect(isTrue).toEqual(true);
-//   });
+describe('isNumber', () => {
+  it('returns true with: 2345', () => {
+    const isTrue = isNumber('2345');
 
-//   it('returns true with: 23.67', () => {
-//     const isTrue = isNumber('23.67');
+    expect(isTrue).toEqual(true);
+  });
 
-//     expect(isTrue).toEqual(true);
-//   });
+  it('returns true with: 23.67', () => {
+    const isTrue = isNumber('23.67');
 
-//   it('returns false with: a237363', () => {
-//     const isFalse = isNumber('a237363');
+    expect(isTrue).toEqual(true);
+  });
 
-//     expect(isFalse).toEqual(false);
-//   });
-// });
+  it('returns false with: a237363', () => {
+    const isFalse = isNumber('a237363');
 
-// describe('isBooleanTrue', () => {
-//   it('returns true', () => {
-//     const isTrue = isBooleanTrue('true');
+    expect(isFalse).toEqual(false);
+  });
+});
 
-//     expect(isTrue).toEqual(true);
-//   });
+describe('isBooleanTrue', () => {
+  it('returns true', () => {
+    const isTrue = isBooleanTrue('true');
 
-//   it('returns false', () => {
-//     const isFalse = isBooleanTrue('false');
+    expect(isTrue).toEqual(true);
+  });
 
-//     expect(isFalse).toEqual(false);
-//   });
-// });
+  it('returns false', () => {
+    const isFalse = isBooleanTrue('false');
 
-// describe('isBooleanFalse', () => {
-//   it('returns true', () => {
-//     const isTrue = isBooleanFalse('false');
+    expect(isFalse).toEqual(false);
+  });
+});
 
-//     expect(isTrue).toEqual(true);
-//   });
+describe('isBooleanFalse', () => {
+  it('returns true', () => {
+    const isTrue = isBooleanFalse('false');
 
-//   it('returns false', () => {
-//     const isFalse = isBooleanFalse('true');
+    expect(isTrue).toEqual(true);
+  });
 
-//     expect(isFalse).toEqual(false);
-//   });
-// });
+  it('returns false', () => {
+    const isFalse = isBooleanFalse('true');
 
-// describe('isNull', () => {
-//   it('returns true', () => {
-//     const isTrue = isNull('null');
+    expect(isFalse).toEqual(false);
+  });
+});
 
-//     expect(isTrue).toEqual(true);
-//   });
+describe('isNull', () => {
+  it('returns true', () => {
+    const isTrue = isNull('null');
 
-//   it('returns false', () => {
-//     const isFalse = isNull('true');
+    expect(isTrue).toEqual(true);
+  });
 
-//     expect(isFalse).toEqual(false);
-//   });
-// });
+  it('returns false', () => {
+    const isFalse = isNull('true');
+
+    expect(isFalse).toEqual(false);
+  });
+});

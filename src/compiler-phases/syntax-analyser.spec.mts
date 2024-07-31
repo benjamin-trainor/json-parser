@@ -1,5 +1,7 @@
-// test('parser', () => {
-//   const parser = 'parser';
+import { expect, test } from 'vitest';
 
-//   expect(parser).toEqual('parser');
-// });
+test('parser', () => {
+  const parser = 'parser';
+
+  expect(parser).toEqual('parser');
+});
