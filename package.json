@@ -1,0 +1,18 @@
+{
+  "name": "json-parser",
+  "version": "1.0.0",
+  "description": "creating a JSON parser from scratch",
+  "main": "./src/index.mts",
+  "scripts": {
+    "test": "",
+    "start": "ts-node --esm ./src/index.mts"
+  },
+  "author": "Benjamin Michael Trainor",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
