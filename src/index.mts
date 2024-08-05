@@ -1,15 +1,15 @@
 import { scanner } from './compiler-phases/lexical-analyser.mts';
 import { parser } from './compiler-phases/syntax-analyser.mts';
+import { astToJSParser } from './compiler-phases/ast-to-js-parser.mts';
 import { JSONParserObject } from './types/types.mts';
 
 export const JSONParser: JSONParserObject = {
   tokeniser: (input) => scanner(input),
   generateAST: (tokens) => parser(tokens),
-  // TODO: Needs one more step to convert from JSON AST to JS
-  jsonToJSParser: (input) => parser(scanner(input)),
+  jsonToJSParser: (input) => astToJSParser(parser(scanner(input))),
 };
 
-console.log(scanner(JSON.stringify([{ name: 'Benjamin' }])));
+// console.log(scanner(JSON.stringify([{ name: 'Benjamin' }])));
 
 const dataObject = {
   name: 'John Doe',
@@ -40,6 +40,9 @@ const dataObject = {
   favoriteColors: ['red', 'blue', 'green'],
 };
 
+console.dir(JSONParser.jsonToJSParser(JSON.stringify(dataObject)), {
+  depth: null,
+});
 // console.dir(parser(scanner(JSON.stringify(dataObject))), { depth: null });
 
 const dataArray = [

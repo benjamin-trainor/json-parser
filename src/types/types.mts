@@ -47,6 +47,16 @@ export type ASTNode =
   | { type: AST_TYPES.BOOLEAN_LITERAL; value: boolean }
   | { type: AST_TYPES.NULL; value: null };
 
+export type JS_OBJECT = { [key: string]: JS_TYPES };
+
+export type JS_TYPES =
+  | string
+  | number
+  | boolean
+  | null
+  | JS_OBJECT
+  | JS_TYPES[];
+
 export type Token = {
   type: TOKEN_TYPES;
   value: string;
@@ -65,5 +75,15 @@ export type ParsedArray = () => ASTNode;
 export type JSONParserObject = {
   tokeniser: (input: string) => Token[];
   generateAST: (tokens: Token[]) => ASTNode;
-  jsonToJSParser: (input: string) => ASTNode;
+  jsonToJSParser: (input: string) => JS_TYPES;
 };
+
+export type ParseASTObject = (data: {
+  type: AST_TYPES.OBJECT_EXPRESSION;
+  properties: Property[];
+}) => { [key: string]: JS_TYPES };
+
+export type ParseASTArray = (data: {
+  type: AST_TYPES.ARRAY_EXPRESSION;
+  value: ASTNode[];
+}) => JS_TYPES[];
