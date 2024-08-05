@@ -1,23 +1,20 @@
-### Lexical Analysis
+### JSON Parser Project
 
-uses Regex for identifiers
-ie: { } " " , :
+# Goal
 
-scans the string from one index to the next
-takes Lexemes as inpuut and produces Tokens
+- To build my own version of `JSON.parse`
 
-Tokens
-indentifiers
-key names and their value
+# Learning Objectives
 
-Two steps:
+- To dive deeper with learning TypeScript
+- Learn different parsing techniques
+- To implement and practice resursive programming
+- To build a basic foundational knowledge of compilers, parsers, interpreters etc
 
-- scanning -> (eliminate Non-Token Elements ie whitespace)
-- analysing -> Tokens
+# Steps to build this
 
-# Analysing Phase
-
-inite state machines for identifying specific Tokens
-ie true, false, null, undefined
-
-# JSON Abstract Syntax Tree (AST)
+- To take the result from `JSON.stringify` when it is passed a valid JS
+- To iterate over that resultant string
+- Tokenize chunks of that string according to data type
+- Build a Abstract Syntax Tree (AST) from those Tokens
+- To then recreate the origional valid JS based off the AST
